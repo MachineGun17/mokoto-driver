@@ -39,6 +39,7 @@ class FreightController extends GetxController {
     getDriver();
     getActiveRide();
     // getLocation();
+    print("El monto actual de dinero del conductor es ${driverModel.value.walletAmount}");
     super.onInit();
   }
 
@@ -48,6 +49,7 @@ class FreightController extends GetxController {
   getDriver() async {
     updateCurrentLocation();
     FireStoreUtils.fireStore.collection(CollectionName.driverUsers).doc(FireStoreUtils.getCurrentUid()).snapshots().listen((event) {
+      print("DriverModel desde freight controller ${event.data()}");
       if (event.exists) {
         driverModel.value = DriverUserModel.fromJson(event.data()!);
       }

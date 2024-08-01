@@ -1,1 +1,99 @@
-{  "Replace your file": "1" }
+{
+  "project_info": {
+    "project_number": "522245058665",
+    "firebase_url": "https://chasky-taxi-ef1b3-default-rtdb.firebaseio.com",
+    "project_id": "chasky-taxi-ef1b3",
+    "storage_bucket": "chasky-taxi-ef1b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522245058665:android:781b2c683251bd9531f2f8",
+        "android_client_info": {
+          "package_name": "com.goride.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522245058665-ndap9to54jvp7q8lnhml2kimuitlf2ft.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.goride.customer",
+            "certificate_hash": "381a62b2b0d4f5fc6e1adf14343f6a847d7e3bcd"
+          }
+        },
+        {
+          "client_id": "522245058665-bn103o007ud59skke8n5so42ph5jvc6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsI5_RIbEQ8w0jQ6r-M2zP4A_qqJN0Y00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522245058665-bn103o007ud59skke8n5so42ph5jvc6i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "522245058665-lbuqrpj9986d9veqg0p8bnsl9cefabva.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goride.driver"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522245058665:android:c6f0ee53207e601631f2f8",
+        "android_client_info": {
+          "package_name": "com.goride.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522245058665-lsjiah37l0cqt8c2n53fm6to0dtqjmr9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.goride.driver",
+            "certificate_hash": "381a62b2b0d4f5fc6e1adf14343f6a847d7e3bcd"
+          }
+        },
+        {
+          "client_id": "522245058665-bn103o007ud59skke8n5so42ph5jvc6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsI5_RIbEQ8w0jQ6r-M2zP4A_qqJN0Y00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522245058665-bn103o007ud59skke8n5so42ph5jvc6i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "522245058665-lbuqrpj9986d9veqg0p8bnsl9cefabva.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goride.driver"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

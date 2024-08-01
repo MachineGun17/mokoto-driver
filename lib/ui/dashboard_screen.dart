@@ -73,9 +73,12 @@ class DashBoardScreen extends StatelessWidget {
                                     ShowToastDialog.closeLoader();
                                     _showAlertDialog(context, "vehicleInformation");
                                   } else {
+                                    print("INFORMACION DE USUARIO ANTES DE ACTUALIZAR DESDE DASHBOARD");
+                                    print(driverModel.toJson());
                                     driverModel.isOnline = true;
                                     await FireStoreUtils.updateDriverUser(driverModel);
-
+                                    print("INFORMACION DE USUARIO DESPUES DE ACTUALIZAR DESDE DASHBOARD");
+                                    print(driverModel.toJson());
                                     ShowToastDialog.closeLoader();
                                   }
                                 },
@@ -248,32 +251,34 @@ class DashBoardScreen extends StatelessWidget {
                         return Text(snapshot.error.toString());
                       } else {
                         DriverUserModel driverModel = snapshot.data!;
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(60),
-                              child: CachedNetworkImage(
-                                height: Responsive.width(20, context),
-                                width: Responsive.width(20, context),
-                                imageUrl: driverModel.profilePic.toString(),
-                                fit: BoxFit.cover,
-                                placeholder: (context, url) => Constant.loader(context),
-                                errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
+                        return SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(60),
+                                child: CachedNetworkImage(
+                                  height: Responsive.width(20, context),
+                                  width: Responsive.width(20, context),
+                                  imageUrl: driverModel.profilePic.toString(),
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => Constant.loader(context),
+                                  errorWidget: (context, url, error) => Image.network(Constant.userPlaceHolder),
+                                ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10),
-                              child: Text(driverModel.fullName.toString(), style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 2),
-                              child: Text(
-                                driverModel.email.toString(),
-                                style: GoogleFonts.poppins(),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(driverModel.fullName.toString(), style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
                               ),
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 2),
+                                child: Text(
+                                  driverModel.email.toString(),
+                                  style: GoogleFonts.poppins(),
+                                ),
+                              )
+                            ],
+                          ),
                         );
                       }
                     default:

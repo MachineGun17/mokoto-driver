@@ -25,6 +25,7 @@ class HomeScreen extends StatelessWidget {
                 ? Constant.loader(context)
                 : Column(
                     children: [
+                      //WALLET NULO AL MOMENTO DE LOGUEAR AL CONDUCTOR
                       double.parse(controller.driverModel.value.walletAmount.toString()) >= double.parse(Constant.minimumDepositToRideAccept)
                           ? SizedBox(
                               height: Responsive.width(8, context),

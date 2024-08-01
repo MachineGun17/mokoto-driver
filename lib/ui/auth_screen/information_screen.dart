@@ -127,6 +127,7 @@ class InformationScreen extends StatelessWidget {
                             await FireStoreUtils.updateDriverUser(userModel).then((value) {
                               ShowToastDialog.closeLoader();
                               print("------>$value");
+                              print("usuario logueado");
                               if (value == true) {
                                 Get.offAll(const DashBoardScreen());
                               }

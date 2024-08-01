@@ -34,9 +34,9 @@ class Constant {
   static const String phoneLoginType = "phone";
   static const String googleLoginType = "google";
   static const String appleLoginType = "apple";
-  static LocationLatLng? currentLocation;
+  static LocationLatLng? currentLocation = LocationLatLng(latitude: 0.0, longitude: 0.0);
 
-  static String mapAPIKey = "";
+  static String mapAPIKey = "AIzaSyAmbduOVO0LZ6SX4NOTW-yEn9jP0fVThWA";
   static String senderId = '';
   static String jsonNotificationFileURL = '';
   static String radius = "";

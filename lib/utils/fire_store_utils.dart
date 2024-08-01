@@ -39,6 +39,7 @@ class FireStoreUtils {
     bool isLogin = false;
     if (FirebaseAuth.instance.currentUser != null) {
       isLogin = await userExitOrNot(FirebaseAuth.instance.currentUser!.uid);
+      print("El id del usuario es ${FirebaseAuth.instance.currentUser!.uid}");
     } else {
       isLogin = false;
     }
@@ -99,8 +100,10 @@ class FireStoreUtils {
   static Future<DriverUserModel?> getDriverProfile(String uuid) async {
     DriverUserModel? driverModel;
     await fireStore.collection(CollectionName.driverUsers).doc(uuid).get().then((value) {
-      if (value.exists) {
+      if (value.exists) {        
         driverModel = DriverUserModel.fromJson(value.data()!);
+        print("Usuario encontrado en BD");
+        print(driverModel!.toJson());
       }
     }).catchError((error) {
       log("Failed to update user: $error");
@@ -146,6 +149,7 @@ class FireStoreUtils {
     await fireStore.collection(CollectionName.currency).where("enable", isEqualTo: true).get().then((value) {
       if (value.docs.isNotEmpty) {
         currencyModel = CurrencyModel.fromJson(value.docs.first.data());
+        print("El valor de la divisa es ${currencyModel!.toJson()}");
       }
     });
     return currencyModel;
@@ -153,8 +157,11 @@ class FireStoreUtils {
 
   static Future<bool> updateDriverUser(DriverUserModel userModel) async {
     bool isUpdate = false;
+    print("ID DEL USUARIO A ACTUALIZAR ${userModel.id}");
     await fireStore.collection(CollectionName.driverUsers).doc(userModel.id).set(userModel.toJson()).whenComplete(() {
       isUpdate = true;
+      print("USUARIO ACTUALIZADO");
+      print("Informacion subida para actualizar ${userModel.toJson()}");
     }).catchError((error) {
       log("Failed to update user: $error");
       isUpdate = false;

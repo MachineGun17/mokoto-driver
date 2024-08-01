@@ -32,6 +32,7 @@ class NewOrderScreen extends StatelessWidget {
                       child: Text("You are Now offline so you can't get nearest order.".tr),
                     )
                   : StreamBuilder<List<OrderModel>>(
+                    //CURRENT LOCATION VALOR NULO QUE PROVOCA QUE NO EJECUTE LA APLICACION 
                       stream: FireStoreUtils().getOrders(controller.driverModel.value, Constant.currentLocation!.latitude, Constant.currentLocation!.longitude),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {

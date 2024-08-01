@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -50,23 +47,35 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'Replace Your key',
-    appId: 'Replace Your key',
-    messagingSenderId: 'Replace Your key',
-    projectId: 'Replace Your key',
-    databaseURL: 'Replace Your key',
-    storageBucket: 'Replace Your key',
+    apiKey: 'AIzaSyBsI5_RIbEQ8w0jQ6r-M2zP4A_qqJN0Y00',
+    appId: '1:522245058665:android:c6f0ee53207e601631f2f8',
+    messagingSenderId: '522245058665',
+    projectId: 'chasky-taxi-ef1b3',
+    databaseURL: 'https://chasky-taxi-ef1b3-default-rtdb.firebaseio.com',
+    storageBucket: 'chasky-taxi-ef1b3.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'Replace Your key',
-    appId: 'Replace Your key',
-    messagingSenderId: 'Replace Your key',
-    projectId: 'Replace Your key',
-    databaseURL: 'Replace Your key',
-    storageBucket: 'Replace Your key',
-    androidClientId: 'Replace Your key',
-    iosClientId: 'Replace Your key',
-    iosBundleId: 'Replace Your key',
+    apiKey: 'AIzaSyAnmYpy_lIHV9Chr6giuoEu3HAM0ThN5eU',
+    appId: '1:522245058665:ios:7628a425c7332c5531f2f8',
+    messagingSenderId: '522245058665',
+    projectId: 'chasky-taxi-ef1b3',
+    databaseURL: 'https://chasky-taxi-ef1b3-default-rtdb.firebaseio.com',
+    storageBucket: 'chasky-taxi-ef1b3.appspot.com',
+    androidClientId: '522245058665-ndap9to54jvp7q8lnhml2kimuitlf2ft.apps.googleusercontent.com',
+    iosClientId: '522245058665-lbuqrpj9986d9veqg0p8bnsl9cefabva.apps.googleusercontent.com',
+    iosBundleId: 'com.goride.driver',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAwUJZ2RhrU22ge1-kzOFE1HpIkYRc-7MI',
+    appId: '1:522245058665:web:e31f749b7f32623a31f2f8',
+    messagingSenderId: '522245058665',
+    projectId: 'chasky-taxi-ef1b3',
+    authDomain: 'chasky-taxi-ef1b3.firebaseapp.com',
+    databaseURL: 'https://chasky-taxi-ef1b3-default-rtdb.firebaseio.com',
+    storageBucket: 'chasky-taxi-ef1b3.appspot.com',
+    measurementId: 'G-95NEPWG1M3',
+  );
+
 }

@@ -18,12 +18,14 @@ class FreightScreen extends StatelessWidget {
           FireStoreUtils().closeStream();
         },
         builder: (controller) {
+          print("El monto actual de la billetera del conductor es ${controller.driverModel.value.walletAmount.toString()}");
           return Scaffold(
             backgroundColor: AppColors.primary,
             body: controller.isLoading.value
                 ? Constant.loader(context)
                 : Column(
                     children: [
+                      //WALLET AMOUNT NULO AL MOMENTO DE INGRESAR A LA PESTAñA DE FREIGHT
                       double.parse(controller.driverModel.value.walletAmount.toString()) >= double.parse(Constant.minimumDepositToRideAccept)
                           ? SizedBox(
                               height: Responsive.width(8, context),

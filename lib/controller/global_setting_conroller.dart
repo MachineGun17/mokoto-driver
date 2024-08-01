@@ -28,12 +28,12 @@ class GlobalSettingController extends GetxController {
     await FireStoreUtils().getGoogleAPIKey();
 
     await FireStoreUtils().getCurrency().then((value) {
-      print("=========>");
+      print("VALOR DE DIVISA EN GLOBAL CONTROLLER");
       print(value);
       if (value != null) {
         Constant.currencyModel = value;
       } else {
-        Constant.currencyModel = CurrencyModel(id: "", code: "USD", decimalDigits: 2, enable: true, name: "US Dollar", symbol: "\$", symbolAtRight: false);
+        Constant.currencyModel = CurrencyModel(id: "64807d6956651", code: "USD", decimalDigits: 2, enable: true, name: "US Dollar", symbol: "\$", symbolAtRight: false);
       }
     });
   }
@@ -48,8 +48,12 @@ class GlobalSettingController extends GetxController {
       if (FirebaseAuth.instance.currentUser != null) {
         await FireStoreUtils.getDriverProfile(FireStoreUtils.getCurrentUid()).then((value) {
           if (value != null) {
+            print("VALOR DE DRIVER USER");
             DriverUserModel driverUserModel = value;
             driverUserModel.fcmToken = token;
+            driverUserModel.walletAmount = value.walletAmount;
+            print("TOKEN DE DRIVER USER ${driverUserModel.fcmToken}");
+            print("WALLET DE DRIVER USER ${driverUserModel.walletAmount}");
             FireStoreUtils.updateDriverUser(driverUserModel);
           }
         });

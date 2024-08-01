@@ -154,6 +154,7 @@ class LoginScreen extends StatelessWidget {
                                 } else {
                                   log("----->old user");
                                   FireStoreUtils.userExitOrNot(value.user!.uid).then((userExit) {
+                                    print("el usuario es ${value.user!.uid} y ya se logueo previamente");
                                     if (userExit == true) {
                                       ShowToastDialog.closeLoader();
                                       Get.to(const DashBoardScreen());
